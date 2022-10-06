@@ -1,0 +1,23 @@
+<%- include('partials/header') -%>
+
+<div class="container mt-5 w-50">
+
+    <h2 class="mb-4">Update Song Data</h2>
+
+    <form action="/edit/<%= song._id %>?_method=PUT" method="POST">
+        <input type="hidden" name="_method" value="PUT">
+        
+        <input type="text" value="<%= song.title %>" name="title" class="form-control" placeholder="Song Name">
+
+        <input type="text" value="<%= song.artist %>" name="artist" class="form-control" placeholder="Song Artist">
+
+        <input type="text" value="<%= song.genre %>" name="genre" class="form-control" placeholder="Song Genre">
+
+        <input type="url" value="<%= song.link %>" name="link" class="form-control" placeholder="Song Link">
+
+        <button type="submit" class="btn btn-danger btn-block mt-3">Update Songs</button>
+
+    </form>
+</div> 
+
+<%- include('partials/footer') -%>

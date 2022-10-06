@@ -1,0 +1,37 @@
+<%- include('partials/header') -%>
+
+<div class="container mt-5 w-50">
+
+    <h2 class="mb-4">Search Songs</h2>
+
+    <form action="/song" method="GET">
+        <input type="text" name="title" class="form-control" placeholder="Song Title">
+
+        <button type="submit" class="btn btn-danger btn-block mt-3">Search in Song Database</button>
+
+    </form>
+
+    <% if(song) { %>
+    <h4 class="text-danger my-4">Search Results: </h4>
+      <div class="col">
+        <div class="col">
+            <div class="card">
+
+              <div class="card-body">
+                  <ul><h5><%= song.title %></h5></ul>
+                  <ul><%= song.artist %></ul>
+                  <ul><%= song.genre %></ul>
+                  <ul><%= song.link %></ul>
+              </div>
+        </div>
+      </div>
+      </div>
+ <% } else if(song != ' '){ %>
+
+    <div class="alert alert-danger mt-4">A song does not exist with this name.</div>
+
+    <% } %>
+
+</div>
+
+<%- include('partials/footer') -%>
